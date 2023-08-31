@@ -3,7 +3,7 @@ use std::fmt;
 use crate::{Vertex, VertexIndex, idx::{Idx, IdxDisplay}, math::is_left_of_line, nexus::Nexus, Coords};
 
 #[derive(Clone)]
-pub(crate) struct Segment<V: Vertex, Index: VertexIndex> {
+pub struct Segment<V: Vertex, Index: VertexIndex> {
     ni_min: Idx<Nexus<V, Index>>,
     ni_max: Idx<Nexus<V, Index>>,
     c_min: Coords<V::Coordinate>,

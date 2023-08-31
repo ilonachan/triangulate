@@ -19,7 +19,7 @@ pub trait Vertex {
 }
 
 #[derive(Clone, Copy, PartialEq)]
-pub(crate) struct Coords<C: Real>([C; 2]);
+pub struct Coords<C: Real>([C; 2]);
 
 impl<C: Real> Coords<C> {
     pub fn x(&self) -> C { self.0[0] }
@@ -65,7 +65,7 @@ impl<C: Real> PartialOrd for Coords<C> {
 
 #[derive(Debug, Clone, Copy)]
 #[repr(transparent)]
-pub(crate) struct VertexExt<V: Vertex>(pub V);
+pub struct VertexExt<V: Vertex>(pub V);
 
 impl<V: Vertex> VertexExt<V> {
     pub fn to_newtype_ref(base: &V) -> &VertexExt<V> {

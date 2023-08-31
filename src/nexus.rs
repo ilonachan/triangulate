@@ -38,13 +38,13 @@ impl<V: Vertex, Index: VertexIndex> std::fmt::Display for Divider<V, Index> {
     }
 }
 
-pub(crate) enum FinalNexusType<V: Vertex, Index: VertexIndex> {
+pub enum FinalNexusType<V: Vertex, Index: VertexIndex> {
     V { ti_upleft: Idx<Trapezoid<V, Index>>, ti_upcenter: Idx<Trapezoid<V, Index>>, ti_upright: Idx<Trapezoid<V, Index>>, ti_down: Idx<Trapezoid<V, Index>> },
     I { ti_upleft: Idx<Trapezoid<V, Index>>, ti_upright: Idx<Trapezoid<V, Index>>, ti_downleft: Idx<Trapezoid<V, Index>>, ti_downright: Idx<Trapezoid<V, Index>> },
     A { _ti_up: Idx<Trapezoid<V, Index>>, ti_downleft: Idx<Trapezoid<V, Index>>, ti_downcenter: Idx<Trapezoid<V, Index>>, ti_downright: Idx<Trapezoid<V, Index>> },
 }
 
-pub(crate) struct Nexus<V: Vertex, Index: VertexIndex> {
+pub struct Nexus<V: Vertex, Index: VertexIndex> {
     vi: Index,
     c: Coords<V::Coordinate>,
     ti_upleft: Idx<Trapezoid<V, Index>>,

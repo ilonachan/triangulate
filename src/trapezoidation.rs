@@ -11,7 +11,7 @@ use crate::{debug, monotone::Monotone, VertexExt};
 #[cfg(feature = "_debugging")]
 use num_traits::ToPrimitive;
 
-trait TrapezoidationStructure<'p, P: PolygonList<'p> + ?Sized + 'p> {
+pub trait TrapezoidationStructure<'p, P: PolygonList<'p> + ?Sized + 'p> {
     fn ps(&self) -> PolygonListExt<'p, P>;
     fn ns(&self) -> &[Nexus<P::Vertex, P::Index>];
     fn ss(&self) -> &[Segment<P::Vertex, P::Index>];

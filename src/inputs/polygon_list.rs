@@ -181,7 +181,7 @@ pub trait PolygonList<'p>: 'p {
 
 // Allows indexing to directly return `VertexExt`s internally for convenience to add display and math functionality 
 #[derive(Debug)]
-pub(crate) struct PolygonListExt<'p, P: PolygonList<'p> + ?Sized>(&'p P);
+pub struct PolygonListExt<'p, P: PolygonList<'p> + ?Sized>(&'p P);
 
 impl<'p, P: PolygonList<'p> + ?Sized> Clone for PolygonListExt<'p, P> {
     fn clone(&self) -> Self {

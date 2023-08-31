@@ -6,7 +6,7 @@ use num_traits::real::Real;
 use crate::{Vertex, VertexIndex, idx::{Idx, IdxDisplay}, trapezoid::Trapezoid, Coords};
 
 #[derive(Debug)]
-pub(crate) enum QueryNode<V: Vertex, Index: VertexIndex> {
+pub enum QueryNode<V: Vertex, Index: VertexIndex> {
     Branch(Idx<QueryNode<V, Index>>, Idx<QueryNode<V, Index>>, QueryNodeBranch<V::Coordinate>),
     Sink(Idx<Trapezoid<V, Index>>),
 }
@@ -29,7 +29,7 @@ impl<V: Vertex, Index: VertexIndex> fmt::Display for QueryNode<V, Index> {
     }
 }
 
-pub(crate) enum QueryNodeBranch<C: Real> {
+pub enum QueryNodeBranch<C: Real> {
     X(Coords<C>, Coords<C>),
     Y(Coords<C>),
 }

@@ -3,7 +3,7 @@ use std::fmt::Debug;
 use crate::{Vertex, VertexIndex, idx::{Idx, IdxDisplay}, nexus::Nexus, querynode::QueryNode, segment::Segment};
 
 #[derive(Debug)]
-pub(crate) struct Trapezoid<V: Vertex, Index: VertexIndex> {
+pub struct Trapezoid<V: Vertex, Index: VertexIndex> {
     left: Option<Idx<Segment<V, Index>>>,
     right: Option<Idx<Segment<V, Index>>>,
     down: Option<Idx<Nexus<V, Index>>>,

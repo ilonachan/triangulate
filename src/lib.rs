@@ -84,7 +84,7 @@ pub mod debug;
 #[doc(hidden)]
 pub mod tests;
 
-pub use trapezoidation::Trapezoidation;
+pub use trapezoidation::{Trapezoidation, TrapezoidationStructure};
 pub use errors::{TrapezoidationError, TriangulationError};
 
 pub(crate) use fan_builder_state::FanBuilderState;
