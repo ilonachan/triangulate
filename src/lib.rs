@@ -62,15 +62,15 @@
 //! This library is based on [Raimund Seidel's randomized algorithm for triangulating polygons](https://www.cs.princeton.edu/courses/archive/fall05/cos528/handouts/A%20Simple%20and%20fast.pdf). 
 //! The expected runtime for each polygon or hole with *n* vertices is O(*n* [log\*](https://en.wikipedia.org/wiki/Iterated_logarithm) *n*), a near-linear runtime.
 
-mod idx;
-mod segment;
-mod trapezoid;
-mod querynode;
-mod trapezoidation;
-mod nexus;
+pub mod idx;
+pub mod segment;
+pub mod trapezoid;
+pub mod querynode;
+pub mod trapezoidation;
+pub mod nexus;
 mod monotone;
 mod mappable;
-mod math;
+pub mod math;
 mod fan_builder_state;
 mod inputs;
 mod outputs;

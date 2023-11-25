@@ -2,6 +2,7 @@ use std::fmt;
 
 use crate::{Vertex, VertexIndex, idx::{Idx, IdxDisplay}, math::is_left_of_line, nexus::Nexus, Coords};
 
+/// Describes a line segment in a polygon, using its endpoints' coordinate and [`Nexus`] IDs.
 #[derive(Clone)]
 pub struct Segment<V: Vertex, Index: VertexIndex> {
     ni_min: Idx<Nexus<V, Index>>,
@@ -30,6 +31,7 @@ where V::Coordinate: std::fmt::Display {
 }
 
 impl<V: Vertex, Index: VertexIndex> Segment<V, Index> {
+    /// Creates a new segment
     pub fn new(ni_min: Idx<Nexus<V, Index>>, ni_max: Idx<Nexus<V, Index>>, c_min: Coords<V::Coordinate>, c_max: Coords<V::Coordinate>) -> Self {
         Self {
             ni_min,
@@ -39,9 +41,12 @@ impl<V: Vertex, Index: VertexIndex> Segment<V, Index> {
         }
     }
 
+    /// Access the segment's lower end vertex ID
     pub fn ni_min(&self) -> Idx<Nexus<V, Index>> { self.ni_min }
+    /// Access the segment's lower end vertex ID
     pub fn ni_max(&self) -> Idx<Nexus<V, Index>> { self.ni_max }
 
+    /// Check if the given point is on the left of the segment
     pub fn is_on_left(&self, c: Coords<V::Coordinate>) -> bool {
         is_left_of_line(self.c_min, self.c_max, c)
     }

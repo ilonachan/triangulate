@@ -61,6 +61,7 @@ pub enum TriangulationError<FBError: error::Error> {
     InternalError(InternalError),
     /// The [FanBuilder](crate::FanBuilder) returned an error.
     FanBuilder(FBError),
+    ///
     #[cfg(feature = "_debugging")]
     SvgOutput(std::io::Error),
 }

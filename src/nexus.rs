@@ -4,9 +4,12 @@ use zot::{Ot, Zot};
 
 use crate::{Vertex, VertexIndex, errors::InternalError, idx::{Idx, IdxDisplay}, segment::Segment, trapezoid::Trapezoid, Coords, math::is_left_of_line};
 
+/// The direction of the divider
 #[derive(Debug, Eq, PartialEq, Copy, Clone)]
 pub enum DividerDirection {
+    /// The y-coordinate increases, matching the actual edge segment
     Ascending,
+    /// The y-coordinate decreases, opposing the actual edge segment
     Descending,
 }
 
@@ -44,6 +47,7 @@ pub enum FinalNexusType<V: Vertex, Index: VertexIndex> {
     A { _ti_up: Idx<Trapezoid<V, Index>>, ti_downleft: Idx<Trapezoid<V, Index>>, ti_downcenter: Idx<Trapezoid<V, Index>>, ti_downright: Idx<Trapezoid<V, Index>> },
 }
 
+/// Describes one of the vertices in a polygon, as well as the trapezoids it's adjacent to
 pub struct Nexus<V: Vertex, Index: VertexIndex> {
     vi: Index,
     c: Coords<V::Coordinate>,
@@ -87,6 +91,7 @@ impl<V: Vertex, Index: VertexIndex> IdxDisplay for Nexus<V, Index> {
 }
 
 impl<V: Vertex, Index: VertexIndex> Nexus<V, Index> {
+    /// Create a new Nexus for the given polygon vertex
     pub fn new(vi: Index, c: Coords<V::Coordinate>, ti_up: Idx<Trapezoid<V, Index>>, ti_down: Idx<Trapezoid<V, Index>>) -> Self {
         Self {
             vi,

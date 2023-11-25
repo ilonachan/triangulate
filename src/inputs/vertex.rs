@@ -22,6 +22,9 @@ pub trait Vertex {
 pub struct Coords<C: Real>([C; 2]);
 
 impl<C: Real> Coords<C> {
+    pub fn new(coords: [C;2]) -> Coords<C> {
+        Coords(coords)
+    }
     pub fn x(&self) -> C { self.0[0] }
     pub fn y(&self) -> C { self.0[1] }
 
